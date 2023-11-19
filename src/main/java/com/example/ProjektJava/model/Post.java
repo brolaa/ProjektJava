@@ -7,7 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Getter
@@ -35,22 +36,22 @@ public class Post {
     @Size(max = 100)
     private String country;
 
-    @Temporal(TemporalType.DATE)
-    private Date departDate;
+    @Column(name = "depart_date", columnDefinition = "DATE")
+    private LocalDate departDate;
 
-    @Temporal(TemporalType.DATE)
-    private Date returnDate;
+    @Column(name = "return_date", columnDefinition = "DATE")
+    private LocalDate returnDate;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date creationDate;
+    @Column(name = "creation_date", columnDefinition = "TIMESTAMP")
+    private LocalDateTime creationDate;
 
-    public Post(String title, String description, String content, String country, Date departDate, Date returnDate) {
+    public Post(String title, String description, String content, String country, LocalDate departDate, LocalDate returnDate) {
         this.title = title;
         this.description = description;
         this.content = content;
         this.country = country;
         this.departDate = departDate;
         this.returnDate = returnDate;
-        this.creationDate = new Date();
+        this.creationDate = LocalDateTime.now();
     }
 }
