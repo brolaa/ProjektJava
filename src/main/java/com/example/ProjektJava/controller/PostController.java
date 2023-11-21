@@ -2,8 +2,9 @@ package com.example.ProjektJava.controller;
 
 import com.example.ProjektJava.PostMapper;
 import com.example.ProjektJava.model.Post;
-import com.example.ProjektJava.payload.request.PostDto;
+import com.example.ProjektJava.payload.request.PostRequest;
 import com.example.ProjektJava.repository.PostRepository;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -71,9 +72,9 @@ public class PostController {
     }
 
     @PostMapping("")
-    public ResponseEntity<Post> createTutorial(@RequestBody PostDto postDto) {
+    public ResponseEntity<Post> createTutorial(@Valid @RequestBody PostRequest postRequest) {
         try {
-            Post newPost = postRepository.save(postMapper.toPost(postDto));
+            Post newPost = postRepository.save(postMapper.toPost(postRequest));
 
             return new ResponseEntity<>(newPost, HttpStatus.CREATED);
         } catch (Exception e) {
@@ -82,11 +83,11 @@ public class PostController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Post> updatePost(@PathVariable("id") long id, @RequestBody PostDto postDto) {
+    public ResponseEntity<Post> updatePost(@PathVariable("id") long id, @RequestBody PostRequest postRequest) {
         Optional<Post> post = postRepository.findById(id);
 
         if (post.isPresent()) {
-            Post _post = postMapper.toPost(postDto);
+            Post _post = postMapper.toPost(postRequest);
             _post.setId(post.get().getId());
             return new ResponseEntity<>(postRepository.save(_post), HttpStatus.OK);
         } else {
