@@ -1,7 +1,8 @@
 package com.example.ProjektJava.payload.request;
 
 import com.example.ProjektJava.validation.PostDate;
-import jakarta.validation.constraints.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;

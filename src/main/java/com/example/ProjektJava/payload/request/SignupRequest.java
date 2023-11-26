@@ -9,7 +9,8 @@ import lombok.Setter;
 
 import java.util.Set;
 
-@Getter @Setter
+@Getter
+@Setter
 public class SignupRequest {
     @NotBlank(message = "Username is required")
     @Size(min = 3, max = 20, message = "Username must have between 3 and 20 characters")

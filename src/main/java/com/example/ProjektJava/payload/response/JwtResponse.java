@@ -5,7 +5,8 @@ import lombok.Setter;
 
 import java.util.List;
 
-@Getter @Setter
+@Getter
+@Setter
 public class JwtResponse {
     private Long id;
     private String username;
