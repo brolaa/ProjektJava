@@ -7,10 +7,12 @@ import java.lang.annotation.*;
 
 @Documented
 @Constraint(validatedBy = PostDateValidator.class)
-@Target( { ElementType.METHOD, ElementType.FIELD })
+@Target({ElementType.METHOD, ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface PostDate {
     String message() default "Invalid date format";
+
     Class<?>[] groups() default {};
+
     Class<? extends Payload>[] payload() default {};
 }
