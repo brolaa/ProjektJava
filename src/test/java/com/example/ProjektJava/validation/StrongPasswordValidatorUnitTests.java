@@ -1,7 +1,5 @@
-package com.example.ProjektJava;
+package com.example.ProjektJava.validation;
 
-import com.example.ProjektJava.validation.StrongPassword;
-import com.example.ProjektJava.validation.StrongPasswordValidator;
 import jakarta.validation.ConstraintValidatorContext;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;

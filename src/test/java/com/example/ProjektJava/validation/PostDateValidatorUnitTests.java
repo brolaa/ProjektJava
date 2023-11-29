@@ -1,7 +1,5 @@
-package com.example.ProjektJava;
+package com.example.ProjektJava.validation;
 
-import com.example.ProjektJava.validation.PostDate;
-import com.example.ProjektJava.validation.PostDateValidator;
 import jakarta.validation.ConstraintValidatorContext;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;

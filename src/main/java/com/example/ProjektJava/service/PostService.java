@@ -6,14 +6,16 @@ import com.example.ProjektJava.payload.request.PostRequest;
 import java.util.List;
 import java.util.Optional;
 
+// Open/Close Principle - tworząc implementacje serwisu można roszerzyć system nie modyfikując kodu
+// Liskov principle - PostService i jego imlementacja PostServiceImpl mogą być stosowane na zmianę
 public interface PostService {
     List<Post> getAllPosts();
 
-    List<Post> getAllPostsFromCountry(String country);
+    List<Post> getPostsByCountry(String country);
 
     Optional<Post> getPostById(Long id);
 
-    Post savePost(PostRequest postRequest);
+    Post addPost(PostRequest postRequest);
 
     Optional<Post> updatePost(Long id, PostRequest postRequest);
 

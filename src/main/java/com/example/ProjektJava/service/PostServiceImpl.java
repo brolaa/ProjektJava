@@ -27,7 +27,7 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public List<Post> getAllPostsFromCountry(String country) {
+    public List<Post> getPostsByCountry(String country) {
         return postRepository.findByCountry(country);
     }
 
@@ -37,7 +37,7 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public Post savePost(PostRequest postRequest) {
+    public Post addPost(PostRequest postRequest) {
         return postRepository.save(postMapper.toPost(postRequest));
     }
 

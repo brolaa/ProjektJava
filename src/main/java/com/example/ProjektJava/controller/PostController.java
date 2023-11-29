@@ -30,8 +30,8 @@ public class PostController {
     }
 
     @GetMapping("/country/{country}")
-    public ResponseEntity<List<Post>> getAllPostsFromCountry(@PathVariable("country") String country) {
-        return ResponseEntity.ok(postService.getAllPostsFromCountry(country));
+    public ResponseEntity<List<Post>> getPostsByCountry(@PathVariable("country") String country) {
+        return ResponseEntity.ok(postService.getPostsByCountry(country));
     }
 
     @GetMapping("/{id}")
@@ -42,8 +42,8 @@ public class PostController {
     }
 
     @PostMapping("")
-    public ResponseEntity<Post> createPost(@Valid @RequestBody PostRequest postRequest) {
-        Post savedPost = postService.savePost(postRequest);
+    public ResponseEntity<Post> addPost(@Valid @RequestBody PostRequest postRequest) {
+        Post savedPost = postService.addPost(postRequest);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedPost);
     }
 

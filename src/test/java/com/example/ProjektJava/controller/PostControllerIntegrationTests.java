@@ -1,5 +1,6 @@
-package com.example.ProjektJava;
+package com.example.ProjektJava.controller;
 
+import com.example.ProjektJava.ProjektJavaApplication;
 import com.example.ProjektJava.model.Post;
 import com.example.ProjektJava.payload.request.PostRequest;
 import com.example.ProjektJava.repository.PostRepository;
@@ -38,9 +39,9 @@ public class PostControllerIntegrationTests {
     @Test
     public void whenValidInput_thenCreatePost() throws Exception {
         ObjectMapper objectMapper = new ObjectMapper();
-        PostRequest post = new PostRequest("Test", "Post testowy", "To jest post testowy", "Poland", "2023-11-10", "2023-11-20");
+        PostRequest postRequest = new PostRequest("Test", "Post testowy", "To jest post testowy", "Poland", "2023-11-10", "2023-11-20");
 
-        String jsonRequest = objectMapper.writeValueAsString(post);
+        String jsonRequest = objectMapper.writeValueAsString(postRequest);
 
         mockMvc.perform(post("/api/posts")
                         .contentType(MediaType.APPLICATION_JSON)
